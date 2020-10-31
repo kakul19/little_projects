@@ -18,7 +18,7 @@ void setup() {
   pinMode(switch_pin, INPUT);
 
   // initially turn the LED OFF
-  digitalWrite(led, LOW);
+  digitalWrite(led, LOW);     //boolean "state" has been initialized to false and the led has been turned OFF initially in accordance with our rule
 }
 
 // the loop function runs over and over again forever
@@ -29,7 +29,13 @@ void loop() {
   if(digitalRead(switch_pin == HIGH)){
 
     // if switch is pressed, change the state of the LED and output it to the LED pin
-    state = !state;
+    
+    /*Complement the state of boolean; It will keep a memory of the state of led; 
+      If before pressing switch led is on (or state= true) then now the led should be turned off and hence "state=false" and 
+      we will write the same on the output pin to led to reflect the change in led*/
+    
+    state = !state;                 
+    
     digitalWrite(led, state);
     
   }
